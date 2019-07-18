@@ -10,35 +10,92 @@
     font-size: 11pt;
     font-family: Inconsolata, monospace;
     color: white;
-    background-color: rgb(24, 207, 198);
+    background-color: rgb(10, 27, 22);
+
+  }
+
+  img {
+    background-size: cover;
+  }
+
+  #link {
+    position: relative;
   }
   #container {
-    padding: .1em 7.5em 7em 1em;
+    width:47.8em;
+    padding: 1em 2em;
+    height: 26.5em;
     background-color: rgb(0, 0, 0);
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%,-50%);
+    left: 52%;
+    margin-right: -10%;
+    transform: translate(-95%,-50%);
+    overflow: auto;
+    z-index: 1;
+    border:3px solid rgb(253, 253, 253);
+    border-style: ridge;
   }
+
+  #desc {
+    width: 27em;
+    position: absolute;
+    top: 21.5%;
+    left: 60%;
+    height: 28.5em;
+    color: rgb(0, 0, 0);
+  }
+
+  #bg1 {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  #bg {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+  }
+  #bg img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+  }
+
   #container border {
+    width: 49em;
+    height: 27em;
     padding: 0em 0em 0em 0em;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(148, 56, 56);
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%,-50%);
+    z-index: -1;
   }
 
   #container output {
+    z-index:10;
     clear: both;
     width: 100%;
   }
   #container output h3 {
+    z-index:10;
     margin: 0;
   }
   #container output pre {
+    z-index:10;
     margin: 0;
   }
   .input-line {
