@@ -1,53 +1,52 @@
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <title>Python Workshop</title>
+    <link href="css/terminal.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-  <title>HTML5 Web Terminal</title>
-  <link href="css/terminal.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    
-  <div style="height: 100%; width: 100%; color: #ffffff;
+  <body>
+    <div
+      style="height: 100%; width: 100%; color: #ffffff;
     background-size: cover;
     background-color: #ff6600; 
-    background-image: url(assets/bkg2.png); background-repeat: repeat-x">
-  </div>
-    
-    
-  <div id="container" style="z-index:1">
-    <output></output>
-    <div id="input-line" class="input-line">
-      <div class="prompt"></div>
-      <div><input class="cmdline" autofocus /></div>
+    background-image: url(assets/bkg2.png); background-repeat: repeat-x"
+    ></div>
+
+    <!-- Terminal -->
+    <div id="container" style="z-index:1; padding-left: 10px;">
+      <output></output>
+      <div id="input-line" class="input-line">
+        <div class="prompt"></div>
+        <div><input class="cmdline" autofocus /></div>
+      </div>
     </div>
-  </div>
 
-  <!--<script src="http://www.codehelper.io/api/ips/?js"></script>-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/term.js"></script>
-  <script src="js/input.js"></script>
+    <!-- Workshop Content -->
+    <div class="desciption-content">
+      <div id="desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel
+        volutpat justo. Sed in magna a urna fermentum feugiat. Nullam urna
+        tortor, sagittis eu blandit eu, interdum a risus. Fusce et massa tellus.
+        Curabitur accumsan sem et fringilla facilisis. Sed quis ultrices est.
+        Aenean semper ultrices eros ac laoreet. Cras congue et lorem id pretium.
+        Nulla luctus odio nibh, eget finibus justo suscipit ac. Vestibulum ante
+        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+        Fusce scelerisque lacus lorem, eu tincidunt nisl rhoncus vitae. Morbi
+        egestas feugiat nunc, eu volutpat dolor posuere et. Etiam consequat
+        augue sed orci aliquet facilisis. Orci varius natoque penatibus et
+        magnis dis parturient montes, nascetur ridiculus mus. Etiam eleifend ut
+        sem in tincidunt. Donec a augue gravida, malesuada neque ac, condimentum
+        magna. Aliquam augue purus, iaculis sed facilisis ut, posuere sit amet
+        mauris. Suspendisse vitae cursus urna, quis egestas lectus.
+      </div>
+    </div>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/term.js"></script>
+    <script src="js/input.js"></script>
 
-  <div class="clock-container ">
-    <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45"/>
-        <g>
-          <rect class="hour" x="47.5" y="12.5" width="5" height="40" rx="2.5" ry="2.55" />
-          <rect class="min" x="48.5" y="12.5" width="3" height="40" rx="2" ry="2"/>
-          <line class="sec" x1="50" y1="50" x2="50" y2="16" />
-        </g>
-      </svg>
-  </div>
-
-
-  <div id="desc">
-   
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel volutpat justo. Sed in magna a urna fermentum feugiat. Nullam urna tortor, sagittis eu blandit eu, interdum a risus. Fusce et massa tellus. Curabitur accumsan sem et fringilla facilisis. Sed quis ultrices est. Aenean semper ultrices eros ac laoreet. Cras congue et lorem id pretium. Nulla luctus odio nibh, eget finibus justo suscipit ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce scelerisque lacus lorem, eu tincidunt nisl rhoncus vitae.
-
-Morbi egestas feugiat nunc, eu volutpat dolor posuere et. Etiam consequat augue sed orci aliquet facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam eleifend ut sem in tincidunt. Donec a augue gravida, malesuada neque ac, condimentum magna. Aliquam augue purus, iaculis sed facilisis ut, posuere sit amet mauris. Suspendisse vitae cursus urna, quis egestas lectus.
-  </div>
-</body>
-
+  </body>
 </html>
