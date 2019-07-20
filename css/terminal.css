@@ -58,12 +58,12 @@ img {
 
   }
   #formlink {
-    font-size:0.95vw;  
+    font-size:100%;  
     position: absolute;
     top: 89.5%;
-    left: 68.2%;
+    left: 60.2%;
     color: rgb(112, 112, 112);
-    text-align: center;
+    text-align: right;
   }
   #formlink a {
     color: yellow;
@@ -106,12 +106,13 @@ img {
 
     }
     #formlink {
-      font-size:0.95vw;  
+      font-size:100%;  
       position: absolute;
       top: 92%;
-      left: 68.2%;
+      left: 45.2%;
+      width: 40%;
       color: rgb(112, 112, 112);
-      text-align: center;
+      text-align: right;
     }
     #formlink a {
       color: yellow;
@@ -153,12 +154,13 @@ img {
       padding: 0.4em 0em;
     }
     #formlink {
-      font-size:0.95vw;  
+      font-size:100%;  
       position: absolute;
       top: 89.5%;
-      left: 68.2%;
+      left: 60%;
+      width: 20.5%;
       color: rgb(112, 112, 112);
-      text-align: center;
+      text-align: right;
     }
     #formlink a {
       color: yellow;
@@ -170,7 +172,7 @@ img {
 footer {
   
   text-align: center;
-  font-size:2vw;  
+  font-size:95%;  
 }
 
 footer a {
@@ -179,8 +181,8 @@ footer a {
 }
 
 footer img {
-  width: 2.2vw;
-  height: 2.2vw;
+  width: 1.5em;
+  height: 1.2em;
 }
 
 #bg1 {

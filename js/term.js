@@ -15,10 +15,10 @@ var Terminal =
 
     const CMDS_ = [
       "help",
+      "submit.py",
       "venue.py",
-      "time.py",
       "register.py",
-      "submit.py"
+      "time.py"
     ];
 
     const QUESTIONS = [
