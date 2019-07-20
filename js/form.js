@@ -48,7 +48,8 @@ $(document).ready(function() {
     const data = {
       name, email, mob, college, branch, year,
       experience: QUESTIONS[experience],
-      category: QUESTIONS[category]
+      category: QUESTIONS[category],
+      payment_status: false
     };
 
     console.log(data);
