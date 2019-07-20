@@ -54,6 +54,19 @@ img {
     left: 18.25%;
     overflow: auto;
     z-index: 1;
+    padding: 0.4em 0em;
+
+  }
+  #formlink {
+    font-size:0.95vw;  
+    position: absolute;
+    top: 89.5%;
+    left: 68.2%;
+    color: rgb(112, 112, 112);
+    text-align: center;
+  }
+  #formlink a {
+    color: yellow;
   }
 }
 
@@ -89,6 +102,19 @@ img {
       left: 15.25%;
       overflow: auto;
       z-index: 1;
+      padding: 0.4em 0em;
+
+    }
+    #formlink {
+      font-size:0.95vw;  
+      position: absolute;
+      top: 92%;
+      left: 68.2%;
+      color: rgb(112, 112, 112);
+      text-align: center;
+    }
+    #formlink a {
+      color: yellow;
     }
   }
 
@@ -124,10 +150,38 @@ img {
       left: 18.25%;
       overflow: auto;
       z-index: 1;
+      padding: 0.4em 0em;
+    }
+    #formlink {
+      font-size:0.95vw;  
+      position: absolute;
+      top: 89.5%;
+      left: 68.2%;
+      color: rgb(112, 112, 112);
+      text-align: center;
+    }
+    #formlink a {
+      color: yellow;
+      text-decoration: none;
+
     }
   }
   
+footer {
+  
+  text-align: center;
+  font-size:2vw;  
+}
 
+footer a {
+  color: yellow;
+  text-decoration: none;
+}
+
+footer img {
+  width: 2.2vw;
+  height: 2.2vw;
+}
 
 #bg1 {
   position: fixed; 
@@ -135,7 +189,7 @@ img {
   left: 0; 
   
   /* Preserve aspet ratio */
-  min-width: 100%;
+  min-width: 100%;  
   min-height: 100%;
 }
 
@@ -232,32 +286,26 @@ img {
   column-width: 100px;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
 
-/************************************************************/
-/* SVG Clock                                                */
-/************************************************************/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* Handle */
 
-.clock-container {
-  display: none /*inline-block*/;
-  position: relative;
-  width: 200px;
-  vertical-align: middle;
-  overflow: hidden;
-} 
-
-.clock-container > svg > circle {
-  stroke-width: 2px;
-  stroke: #fff;
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgb(37, 37, 37);
 }
 
-.hour, .min, .sec { 
-  stroke-width: 1px;
-  fill: #333;
-  stroke: #555;
-}
-
-.sec {
-    stroke: #f55;
+::-webkit-scrollbar-thumb:window-inactive {
+ background: rgb(15, 15, 15);
 }
   
   

@@ -66,6 +66,7 @@ var Terminal =
     var history_ = [];
     var histpos_ = 0;
     var counter = 0;
+    var correctinp = 0;
     var histtemp_ = 0;
     registerStart = false;
 
@@ -151,18 +152,46 @@ var Terminal =
 
         if(registerStart==true)
         {
-          ans[ident[counter]]=args.join(" ");
-          counter=counter+1;
+          ans[ident[counter-1]]=args.join(" ");
           if(counter==QUESTIONS.length) {
             output('Run submit.py to submit your details !');
           registerStart=false;
-          /*for (var key in ans) {
-            if (ans.hasOwnProperty(key)) {
-                output(key+" "+ans[key]);
-            }
-          }*/
           }
           else{
+            if(correctinp==1 && counter==2)
+            {
+              do
+              {
+                var re = /\S+@\S+\.\S+/ ;
+                var em = args.join(" ").trim();
+                if(re.test(em)){
+                //output('yes');
+                correctinp=correctinp+1;
+                  break;}
+                else{
+                output("Please Enter a valid email id");
+                return;}
+              }while(true);
+            }
+            else if(correctinp==2 && counter==3)
+            {
+              do
+              {
+                var x1=args.join(" ").trim();
+                if(!(x1.length==10) || isNaN(x1))
+                {
+                  output("Please enter a valid mobile number");
+                  return;
+                }
+                else
+                {
+                  //output("yes");
+                  correctinp=correctinp+1;
+                  break;
+                }
+
+              }while(true);
+            }
             output(QUESTIONS[counter]);
             if(counter==QUESTIONS.length-2)
             {
@@ -178,6 +207,7 @@ var Terminal =
                 output(options2[q]);
               }
             }
+            counter=counter+1;
           }
         }
 
@@ -190,12 +220,19 @@ var Terminal =
           output('RUNNING THE REGISTRATION SCRIPT...');
           output(QUESTIONS[counter]);
           registerStart=true;
+          correctinp=1;
+          counter=1;
           }
           else if(args[1].toLowerCase()=='venue.py')
           output('KJ Somaiya College Of Engineering');
           else if(args[1].toLowerCase()=='submit.py')
           {
             output('SUBMITTING DETAILS...');
+            for (var key in ans) {
+            if (ans.hasOwnProperty(key)) {
+                output(key+" "+ans[key]);
+            }
+          }
           }
           else
           output('No Such Script');
@@ -203,6 +240,8 @@ var Terminal =
           case "clear":
             output_.innerHTML = "";
             this.value = "";
+            output("Welcome to the codecell registration terminal");
+            output("Type \"ls\" for a list of available scripts");
             return;
           case "echo":
             output(args.join(" "));
@@ -264,6 +303,8 @@ var Terminal =
     // Output to the terminal
     function output(html) {
       output_.insertAdjacentHTML("beforeEnd", "<p>" + html + "</p>");
+      var objDiv = document.getElementById("container");
+      objDiv.scrollTop = objDiv.scrollHeight;
     }
 
     // Cross-browser impl to get document's height.
@@ -286,3 +327,5 @@ var Terminal =
       output: output
     };
   };
+
+  var $textarea = $('#textarea');
