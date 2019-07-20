@@ -14,19 +14,50 @@ var Terminal =
     var output_ = document.querySelector(outputContainer);
 
     const CMDS_ = [
-      "cat",
-      "clear",
-      "echo",
-      "ls",
-      "uname",
-      "whoami",
-      "register.py"
+      "help",
+      "venue.py",
+      "time.py",
+      "register.py",
+      "submit.py"
     ];
 
     const QUESTIONS = [
-      "What is your name?",
-      "This is test question ?"
+      "Enter your full name :",
+      "Enter your email id :",
+      "Enter your Mobile No. :",
+      "Enter your College name :",
+      "Enter your Branch name :",
+      "What year are you currently studying in :",
+      "Which of the following best describes your programming experience ?",
+      "How would you categorize yourself in terms of python knowledge ?"
     ];
+
+    const ident = [
+      "name",
+      "email",
+      "mobile",
+      "college",
+      "branch",
+      "year",
+      "q1",
+      "q2",
+    ];
+
+    const options1=[
+      "(A)New to programming and have never worked with programming languages before",
+      "(B)Have a basic grasp on programming languages like c or java or python",
+      "(C)Taken a course in Data structures,Algorithms so I have an understanding of it",
+      "(D)Worked extensively with languages and can convert thought to code using Data structures and Algorithms"
+    ];
+
+    const options2=[
+      "(A)Beginner to python with no prior experience",
+      "(B)Know the syntax, but haven\'t made anything cool with it",
+      "(C)Not afraid to pull up docs to find what I am lookijg for",
+      "(D)Have various projects in python and can write efficient Python code following best practices"
+    ];
+
+    var ans={};
 
     var submissionData = {};
 
@@ -34,7 +65,9 @@ var Terminal =
     var cwd_ = null;
     var history_ = [];
     var histpos_ = 0;
+    var counter = 0;
     var histtemp_ = 0;
+    registerStart = false;
 
     window.addEventListener(
       "click",
@@ -113,30 +146,60 @@ var Terminal =
             return val;
           });
           var cmd = args[0].toLowerCase();
-          args = args.splice(1); // Remove cmd from arg list.
+          //args = args.splice(1); //Remove cmd from arg list.
         }
 
-        switch (cmd) {
-          case "cat":
-            var url = args.join(" ");
-            if (!url) {
-              output("Usage: " + cmd + " https://s.codepen.io/...");
-              output(
-                "Example: " +
-                  cmd +
-                  " https://s.codepen.io/AndrewBarfield/pen/LEbPJx.js"
-              );
-              break;
+        if(registerStart==true)
+        {
+          ans[ident[counter]]=args.join(" ");
+          counter=counter+1;
+          if(counter==QUESTIONS.length) {
+            output('Run submit.py to submit your details !');
+          registerStart=false;
+          /*for (var key in ans) {
+            if (ans.hasOwnProperty(key)) {
+                output(key+" "+ans[key]);
             }
-            $.get(url, function(data) {
-              var encodedStr = data.replace(/[\u00A0-\u9999<>\&]/gim, function(
-                i
-              ) {
-                return "&#" + i.charCodeAt(0) + ";";
-              });
-              output("<pre>" + encodedStr + "</pre>");
-            });
-            break;
+          }*/
+          }
+          else{
+            output(QUESTIONS[counter]);
+            if(counter==QUESTIONS.length-2)
+            {
+              output("Please answer this question with the letter of the appropriate option, honestly");
+              for(var q in options1) {
+                output(options1[q]);
+              }
+            }
+            else if(counter==QUESTIONS.length-1)
+            {
+              output("Please answer this question with the letter of the appropriate option, honestly");
+              for(var q in options2) {
+                output(options2[q]);
+              }
+            }
+          }
+        }
+
+        else{
+        switch (cmd) {
+          case "python3":
+          if(args=='python3')
+          output('Try running a script!');
+          if(args[1].toLowerCase()=='register.py'){
+          output('RUNNING THE REGISTRATION SCRIPT...');
+          output(QUESTIONS[counter]);
+          registerStart=true;
+          }
+          else if(args[1].toLowerCase()=='venue.py')
+          output('KJ Somaiya College Of Engineering');
+          else if(args[1].toLowerCase()=='submit.py')
+          {
+            output('SUBMITTING DETAILS...');
+          }
+          else
+          output('No Such Script');
+          break;
           case "clear":
             output_.innerHTML = "";
             this.value = "";
@@ -146,10 +209,11 @@ var Terminal =
             break;
           case "ls":
             output('<div class="ls-files">' + CMDS_.join("<br>") + "</div>");
+            //output('HINT : try running a script');
             break;
-          case "uname":
-            output(navigator.appVersion);
-            break;
+          case "help":
+          output('HINT : try running a script with python3 !');
+          break;
           case "whoami":
             var result = '<img src="' + codehelper_ip["Flag"] + '"><br><br>';
             for (var prop in codehelper_ip)
@@ -157,17 +221,17 @@ var Terminal =
             output(result);
             break;
           case "register.py":
-            QUESTIONS.forEach(question => {
-              output(question);
-              
-            });
+            output('HINT : try running the script with python3 !');         
+            break;
+          case "submit.py":
+            output('HINT : try running the script with python3 !');         
             break;
           default:
             if (cmd) {
               output(cmd + ": command not found");
             }
         }
-
+      }
         window.scrollTo(0, getDocHeight_());
         this.value = ""; // Clear/setup line for next input.
       }
@@ -215,7 +279,8 @@ var Terminal =
     // Initiate
     return {
       init: function() {
-        output("$Python3");
+        output("Welcome to the codecell registration terminal");
+        output("Type \"ls\" for a list of available scripts");
         //output('<img align="left" src="assets/codecell logo.jpg" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">HTML5 Web Terminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.</p>');
       },
       output: output

@@ -158,7 +158,7 @@ img {
 #container border {
   width: 49em;
   height: 27em;
-  padding: 0em 0em 0em 0em;
+  padding: 0em;
   background-color: rgb(148, 56, 56);
   position: absolute;
   top: 50%;
