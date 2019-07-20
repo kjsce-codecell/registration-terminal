@@ -66,6 +66,8 @@ img {
     text-align: right;
   }
   #formlink a {
+    text-decoration: none;
+
     color: yellow;
   }
 }
@@ -108,13 +110,15 @@ img {
     #formlink {
       font-size:100%;  
       position: absolute;
-      top: 92%;
-      left: 45.2%;
-      width: 40%;
+      top: 90%;
+      right: 16%;
+      width: 67.5%;
       color: rgb(112, 112, 112);
       text-align: right;
     }
     #formlink a {
+      text-decoration: none;
+
       color: yellow;
     }
   }
@@ -157,8 +161,8 @@ img {
       font-size:100%;  
       position: absolute;
       top: 89.5%;
-      left: 60%;
-      width: 20.5%;
+      right: 19.8%;
+      width: 50.5%;
       color: rgb(112, 112, 112);
       text-align: right;
     }
