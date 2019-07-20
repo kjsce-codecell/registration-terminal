@@ -1,6 +1,6 @@
 
 body {
-  background-color: #e0f2f1;
+  background-color: #3a4149;
 }
 
 form p {
@@ -9,11 +9,11 @@ form p {
 
 .ctrlqHeaderMast {
   height: 278px;
-  background: #009688;
+  background: black;
 }
 
 .ctrlqFormContent {
-  color: rgba(0,0,0,.87);
+  color: white;
   padding: 20px 35px
 }
 
@@ -30,7 +30,7 @@ form p {
 }
 
 .ctrlqAccent {
-  background-color: #a7ffeb;
+  background-color: #d7e5a0;
   height: 8px;
 }
 .ctrlqCenteredContent {
@@ -38,7 +38,7 @@ form p {
   width: 600px; 
 }
 .ctrlqFormCard {
-  background-color: #fff;
+  background-color: #14171B;
   margin-bottom: 48px;
   -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
@@ -77,7 +77,7 @@ div.error {
   top: -1rem;
   left: 0rem;
   font-size: 0.8rem;
-  color: #FF4081;
+  color: #F5365C;
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
   -o-transform: translateY(0%);
