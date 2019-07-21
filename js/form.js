@@ -8,6 +8,7 @@ $(document).ready(function() {
   $("form").validate({
     submitHandler: function(form) {
       console.log(form);
+      
       return;
     },
     errorElement: 'div',
@@ -35,9 +36,9 @@ $(document).ready(function() {
       docs: 'I am not afraid to pull up docs to find what I am looking for'
     };
 
-    let name = $.trim($("#name").val());
-    let email = $.trim($("#email").val());
-    let mob = $.trim($("#mob").val());
+    let Name = $.trim($("#name").val());
+    let Email = $.trim($("#email").val());
+    let mobile = $.trim($("#mob").val());
     let college = $.trim($("#college").val());
     let branch = $.trim($("#branch").val());
     let year = $.trim($("#year").val());
@@ -46,14 +47,30 @@ $(document).ready(function() {
     let category = $("input[name='category']:checked").val();
 
     const data = {
-      name, email, mob, college, branch, year,
+      Name, Email, mobile, college, branch, year,
       experience: QUESTIONS[experience],
-      category: QUESTIONS[category],
-      payment_status: false
+      category: QUESTIONS[category]
     };
 
     console.log(data);
 
     // Submit this "data" object to server
+    try{
+        fetch(
+            "http://35.225.175.55:5000/register",
+            {
+                method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                redirect: "follow", referrer: "no-referrer", body: JSON.stringify(data)
+            }
+        ).then(
+            res=>console.log(res)
+        );
+        
+        }catch(err){
+            console.log(err);
+        }
   });
 });
