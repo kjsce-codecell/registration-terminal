@@ -305,9 +305,10 @@ var Terminal =
 
     // Output to the terminal
     function output(html) {
+      
+      output_.insertAdjacentHTML("beforeEnd", "<p>" + html + "</p>");
       var objDiv = document.getElementById("container");
       objDiv.scrollTop = objDiv.scrollHeight;
-      output_.insertAdjacentHTML("beforeEnd", "<p>" + html + "</p>");
       
     }
 
