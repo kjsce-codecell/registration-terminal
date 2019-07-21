@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link href="css/form.css" rel="stylesheet">
-    
+
     <title>Python Automation</title>
 
     <style>
@@ -18,25 +18,25 @@
       .input-field label {
         color:  white;
       }
-      
+
       .input-field input[type=text]:focus + label {
         color:  #d7e5a0;
       }
-      
+
       .input-field input[type=text]:focus {
         border-bottom: 1px solid #d7e5a0;
         box-shadow: 0 1px 0 0 #d7e5a0;
       }
-      
+
       .input-field input[type=text].valid {
         border-bottom: 1px solid #d7e5a0;
         box-shadow: 0 1px 0 0 #d7e5a0;
       }
-      
+
       .input-field .prefix.active {
         color: #d7e5a0;
       }
-        
+
       input[type="radio"].with-gap:checked+label:after {
         background-color: #B5E203 !important;
       }
@@ -55,7 +55,7 @@
           <div class="ctrlqAccent"></div>
           <div class="ctrlqFormContent">
 
-            <form id="submitForm" method="POST" action="#">  
+            <form id="submitForm" method="POST" action="#">
 
               <div class="row">
                 <div class="input-field col s12">
@@ -81,7 +81,7 @@
 
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="mob" name="mob" type="text" class="validate" data-error="#e1" required>
+                  <input id="mob" name="mob" type="text" class="validate" data-error="#e3" required>
                   <label for="mob">Mobile Number</label>
                   <div id="e3"></div>
                 </div>
@@ -89,7 +89,7 @@
 
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="college" name="college" type="text" class="validate" data-error="#e1" required>
+                  <input id="college" name="college" type="text" class="validate" data-error="#e4" required>
                   <label for="college">College</label>
                   <div id="e4"></div>
                 </div>
@@ -97,7 +97,7 @@
 
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="branch" name="branch" type="text" class="validate" data-error="#e1" required>
+                  <input id="branch" name="branch" type="text" class="validate" data-error="#e5" required>
                   <label for="branch">Branch</label>
                   <div id="e5"></div>
                 </div>
@@ -105,7 +105,7 @@
 
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="year" name="year" type="text" class="validate" data-error="#e1" required>
+                  <input id="year" name="year" type="text" class="validate" data-error="#e6" required>
                   <label for="year">Year</label>
                   <div id="e6"></div>
                 </div>
@@ -123,11 +123,11 @@
                     <input name="experience"  class="with-gap" type="radio" id="basic" value="basic">
                     <label for="basic"> I have a basic grasp on programming concepts and can implement simple programs in a language like C, Java or python.</label>
                   </p><br>
-                  <p class="mb-2"> 
+                  <p class="mb-2">
                     <input name="experience"  class="with-gap" type="radio" id="amateur" value="amateur">
                     <label for="amateur"> I have taken a course in DSA thus have an understanding of it.</label>
                   </p>
-                  <p class="mb-2"> 
+                  <p class="mb-2">
                     <input name="experience"  class="with-gap" type="radio" id="professional" value="professional">
                     <label for="professional">I have extensively worked with C, java or other languages and can easily convert thought to code using proper data structures and efficient algorithms.</label>
                   </p>
@@ -148,11 +148,11 @@
                     <input name="category" type="radio"  class="with-gap" id="syntax" value="syntax">
                     <label for="syntax">  I know the syntax but haven't made anything cool with it yet.</label>
                   </p>
-                  <p class="mb-2"> 
+                  <p class="mb-2">
                     <input name="category" type="radio"  class="with-gap" id="intermediate" value="intermediate">
                     <label for="intermediate"> I have various side projects in Python and I can write efficient python code following best practices.</label>
                   </p><br>
-                  <p class="mb-2"> 
+                  <p class="mb-2">
                     <input name="category" type="radio"  class="with-gap" id="docs" value="docs">
                     <label for="docs"> I am not afraid to pull up docs to find what I am looking for.</label>
                   </p><br>
@@ -172,9 +172,9 @@
 
               <!-- <div class="row">
                 <div class="input-field col s12">
-                  <select id="gender" name="gender" class="validate" data-error="#e3" required>           
+                  <select id="gender" name="gender" class="validate" data-error="#e3" required>
                     <option value="" disabled selected>Choose Gender</option>
-                    <option value="Male">Male</option> 
+                    <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>
                   <div id="e3"></div>
@@ -192,7 +192,7 @@
                     <input name="color" type="radio" id="color_green" value="Green">
                     <label for="color_green">Green</label>
                   </p>
-                  <p> 
+                  <p>
                     <input name="color" type="radio" id="color_blue" value="Blue">
                     <label for="color_blue">Blue</label>
                   </p>
@@ -231,16 +231,16 @@
                     <input type="checkbox" name="food" id="food_french">
                     <label for="food_french">French</label>
                   </p>
-                  <p> 
-                    <input type="checkbox" name="food" id="food_japanese"> 
-                    <label for="food_japanese">Japanese</label> 
+                  <p>
+                    <input type="checkbox" name="food" id="food_japanese">
+                    <label for="food_japanese">Japanese</label>
                   </p>
                   <div class="input-field">
                     <br><div id="e7"></div>
                   </div>
                 </div>
               </div> -->
-    
+
               <div class="row center-block">
                 <div class="input-field col m6 s12">
                   <button type="submit" class="waves-effect waves-light btn-large" style="background-color: #ccff00;color: #000000;">Submit</button>

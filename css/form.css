@@ -35,7 +35,7 @@ form p {
 }
 .ctrlqCenteredContent {
   margin: auto;
-  width: 600px; 
+  width: 800px;
 }
 .ctrlqFormCard {
   background-color: #14171B;
@@ -59,7 +59,7 @@ form p {
   margin-bottom: 22px
 }
 
-@media (max-width: 660px) {
+@media (max-width: 800px) {
   .ctrlqHeaderMast {
     height: 122px;
   }
@@ -82,4 +82,8 @@ div.error {
   -ms-transform: translateY(0%);
   -o-transform: translateY(0%);
   transform: translateY(0%);
+}
+
+[type="radio"]:not(:checked)+label, [type="radio"]:checked+label{
+  height:auto;
 }

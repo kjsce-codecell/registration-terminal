@@ -1,10 +1,10 @@
 $(document).ready(function() {
   $('select').material_select();
-  
+
   $.validator.setDefaults({
     ignore: []
   });
-  
+
   $("form").validate({
     submitHandler: function(form) {
       console.log(form);
@@ -42,7 +42,7 @@ $(document).ready(function() {
     let college = $.trim($("#college").val());
     let branch = $.trim($("#branch").val());
     let year = $.trim($("#year").val());
-    
+
     let experience = $("input[name='experience']:checked").val();
     let category = $("input[name='category']:checked").val();
 
