@@ -8,21 +8,27 @@
   </head>
 
   <body>
-    <div
-      style="height: 100%; width: 100%; color: #ffffff;
-    background-size: cover;
-    background-repeat: repeat-x"
-    ></div>
-
+  <div class="full_cont">
     <div id="title">Automate With Python</div>
 
     <!-- Terminal -->
-    <div id="container" style="z-index:1; padding-left: 10px;">
-      <output></output>
-      <div id="input-line" class="input-line">
-        <div class="prompt"></div>
-        <div><input class="cmdline" autofocus /></div>
+    <div class="term">
+      <div class="term-header">
+        <button class="term-header-button term-header-button-close"></button>
+        <button class="term-header-button term-header-button-minimize"></button>
+        <button class="term-header-button term-header-button-expand"></button>
+        <div class="term-header-title">
+          <span>KJSCE@codecell-macbook-pro: ~/python</span>
+        </div>
       </div>
+      <div id="container" >
+        <output></output>
+        <div id="input-line" class="input-line">
+          <div class="prompt"></div>
+          <div><input class="cmdline" autofocus /></div>
+        </div>
+      </div>
+      <div id="formlink"><a href="form.html">Register</a> the uncool way</div>
     </div>
 
     <!-- Workshop Content -->
@@ -38,15 +44,10 @@
         Fusce scelerisque lacus lorem, eu tincidunt nisl rhoncus vitae. Morbi
         egestas feugiat nunc, eu volutpat dolor posuere et. Etiam consequat
         augue sed orci aliquet facilisis. Orci varius natoque penatibus et
-        magnis dis parturient montes, nascetur ridiculus mus. Etiam eleifend ut
-        sem in tincidunt. Donec a augue gravida, malesuada neque ac, condimentum
-        magna. Aliquam augue purus, iaculis sed facilisis ut, posuere sit amet
-        mauris. Suspendisse vitae cursus urna, quis egestas lectus.
+        magnis dis parturient montes, nascetur ridiculus mus.
         </p>
       </div>
     </div>
-
-    <div id="formlink"><a href="form.html">Register</a> the boring way</div>
 
     <footer>Made with <img src=assets/heart.svg></img> by <a href="http://www.kjscecodecell.com/">CodeCell</a></footer>
 
@@ -54,6 +55,6 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/term.js"></script>
     <script src="js/input.js"></script>
-
+  </id>
   </body>
 </html>

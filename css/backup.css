@@ -1,0 +1,316 @@
+::selection {
+  background: #FF5E99;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-size: 11pt;
+  font-family: Inconsolata, monospace;
+  color: white;
+  background-color: #14171b;
+  margin: 0;
+}
+
+img {
+  background-size: cover;
+}
+
+#link {
+  position: relative;
+}
+
+
+@media screen and (min-width: 701px) and (max-width:1024px) {
+  #desc {
+    font-size:1.65vw;
+    width: 61.5%;
+    position: absolute;
+    top: 10%;
+    left: 18.25%;
+    height: 25.3%;
+    overflow: auto;
+    color: rgb(112, 112, 112);
+    text-align: center;
+  }
+
+  #title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.7vw;
+    width: 61.5%;
+    position: absolute;
+    left: 18.25%;
+    top: 6%;
+    text-align: center;
+    color :rgb(217, 255, 0);
+  }
+  #container {
+    width:61.5%;
+    height: 50%;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: 37.5%;
+    left: 18.25%;
+    overflow: auto;
+    z-index: 1;
+    padding: 0.4em 0em;
+
+  }
+  #formlink {
+    font-size:100%;
+    position: absolute;
+    top: 89.5%;
+    left: 60.2%;
+    color: rgb(112, 112, 112);
+    text-align: right;
+  }
+  #formlink a {
+    text-decoration: none;
+
+    color: yellow;
+  }
+}
+
+@media screen and (max-width: 700px) {
+    #desc {
+      font-size:2vw;
+      width: 67.5%;
+      position: absolute;
+      top: 9.5%;
+      left: 15.25%;
+      overflow: auto;
+      height: 25.5%;
+      color: rgb(112, 112, 112);
+      text-align: center;
+    }
+
+    #title {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 4vw;
+      width: 67.5%;
+      position: absolute;
+      left: 15.25%;
+      top: 5%;
+      text-align: center;
+      color :rgb(217, 255, 0);
+    }
+    #container {
+      width:67.5%;
+      height: 50%;
+      background-color: rgb(0, 0, 0);
+      position: absolute;
+      top: 37.5%;
+      left: 15.25%;
+      overflow: auto;
+      z-index: 1;
+      padding: 0.4em 0em;
+
+    }
+    #formlink {
+      font-size:100%;
+      position: absolute;
+      top: 90%;
+      right: 16%;
+      width: 67.5%;
+      color: rgb(112, 112, 112);
+      text-align: right;
+    }
+    #formlink a {
+      text-decoration: none;
+
+      color: yellow;
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    #desc {
+      font-size:0.95vw;
+      width: 61.5%;
+      position: absolute;
+      top: 12%;
+      left: 18.25%;
+      height: 28.5%;
+      color: rgb(112, 112, 112);
+      text-align: center;
+      overflow: auto;
+    }
+
+    #title {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 2.7vw;
+      width: 61.5%;
+      position: absolute;
+      left: 18.25%;
+      top: 6%;
+      text-align: center;
+      color :rgb(217, 255, 0);
+    }
+    #container {
+      width:61.5%;
+      height: 50%;
+      background-color: rgb(0, 0, 0);
+      position: absolute;
+      top: 37.5%;
+      left: 18.25%;
+      overflow: auto;
+      z-index: 1;
+      padding: 0.4em 0em;
+    }
+    #formlink {
+      font-size:100%;
+      position: absolute;
+      top: 89.5%;
+      right: 19.8%;
+      width: 50.5%;
+      color: rgb(112, 112, 112);
+      text-align: right;
+    }
+    #formlink a {
+      color: yellow;
+      text-decoration: none;
+
+    }
+  }
+
+footer {
+
+  text-align: center;
+  font-size:95%;
+  margin-top: -26px;
+}
+
+footer a {
+  color: yellow;
+  text-decoration: none;
+}
+
+footer img {
+  width: 1.5em;
+  height: 1.2em;
+}
+
+#bg1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#container border {
+  width: 49em;
+  height: 27em;
+  padding: 0em;
+  background-color: rgb(148, 56, 56);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+}
+
+#container output {
+  z-index:10;
+  clear: both;
+  width: 100%;
+}
+#container output h3 {
+  z-index:10;
+  margin: 0;
+}
+#container output pre {
+  z-index:10;
+  margin: 0;
+}
+.input-line {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  clear: both;
+}
+.input-line > div:nth-child(2) {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+}
+.prompt {
+  white-space: nowrap;
+  color: #96b38a;
+  margin-right: 7px;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-orient: vertical;
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-orient: vertical;
+  display: box;
+  box-pack: center;
+  box-orient: vertical;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.cmdline {
+  outline: none;
+  background-color: transparent;
+  margin: 0;
+  width: 100%;
+  font: inherit;
+  border: none;
+  color: inherit;
+}
+.ls-files {
+  height: 45px;
+  -webkit-column-width: 100px;
+  -moz-column-width: 100px;
+  -o-column-width: 100px;
+  column-width: 100px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgb(37, 37, 37);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+ background: rgb(15, 15, 15);
+}

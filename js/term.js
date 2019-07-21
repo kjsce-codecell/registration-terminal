@@ -3,6 +3,7 @@ util.toArray = function(list) {
   return Array.prototype.slice.call(list || [], 0);
 };
 
+
 var Terminal =
   Terminal ||
   function(cmdLineContainer, outputContainer) {
@@ -70,13 +71,13 @@ var Terminal =
     var histtemp_ = 0;
     registerStart = false;
 
-    window.addEventListener(
-      "click",
-      function(e) {
-        cmdLine_.focus();
-      },
-      false
-    );
+    // window.addEventListener(
+    //   "click",
+    //   function(e) {
+    //     cmdLine_.focus();
+    //   },
+    //   false
+    // );
 
     cmdLine_.addEventListener("click", inputTextClick_, false);
     cmdLine_.addEventListener("keydown", historyHandler_, false);
@@ -260,10 +261,10 @@ var Terminal =
             output(result);
             break;
           case "register.py":
-            output('HINT : try running the script with python3 !');         
+            output('HINT : try running the script with python3 !');
             break;
           case "submit.py":
-            output('HINT : try running the script with python3 !');         
+            output('HINT : try running the script with python3 !');
             break;
           default:
             if (cmd) {
@@ -271,7 +272,7 @@ var Terminal =
             }
         }
       }
-        window.scrollTo(0, getDocHeight_());
+        // window.scrollTo(0, getDocH q q eight_());
         this.value = ""; // Clear/setup line for next input.
       }
     }
@@ -304,7 +305,7 @@ var Terminal =
     function output(html) {
       output_.insertAdjacentHTML("beforeEnd", "<p>" + html + "</p>");
       var objDiv = document.getElementById("container");
-      objDiv.scrollTop = objDiv.scrollHeight;
+      // objDiv.scrollTop = objDiv.scrollHeight;
     }
 
     // Cross-browser impl to get document's height.
