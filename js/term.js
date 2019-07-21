@@ -122,6 +122,8 @@ var Terminal =
 
     //
     function processNewCommand_(e) {
+      var objDiv = document.getElementById("container");
+      objDiv.scrollTop = objDiv.scrollHeight;
       if (e.keyCode == 9) {
         // tab
         e.preventDefault();
@@ -303,9 +305,10 @@ var Terminal =
 
     // Output to the terminal
     function output(html) {
-      output_.insertAdjacentHTML("beforeEnd", "<p>" + html + "</p>");
       var objDiv = document.getElementById("container");
-      // objDiv.scrollTop = objDiv.scrollHeight;
+      objDiv.scrollTop = objDiv.scrollHeight;
+      output_.insertAdjacentHTML("beforeEnd", "<p>" + html + "</p>");
+      
     }
 
     // Cross-browser impl to get document's height.
