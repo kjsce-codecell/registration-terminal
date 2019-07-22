@@ -149,7 +149,7 @@ var Terminal =
                     var cmd = args[0].toLowerCase();
                     //args = args.splice(1); //Remove cmd from arg list.
                 }
-                
+
 
                 if (registerStart == true) {
                     console.log(QUESTIONS+' '+counter);
@@ -168,9 +168,19 @@ var Terminal =
                                 },
                                 redirect: "follow", referrer: "no-referrer", body: JSON.stringify(ans)
                             }
+
                         );
+
+                            var text = await response.text();
+                            if (text === 'Registered Succesfully')
+                                output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                            else if (text === 'Already Registered')
+                                output("ALREADY REGISTERED USING THIS MAIL!");
+                            else {
+                                output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
+                            }
                         console.log(response);
-                        output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                        //output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
                         }catch(err){
                             console.log(err);
                             try{
@@ -184,8 +194,17 @@ var Terminal =
                                         redirect: "follow", referrer: "no-referrer", body: JSON.stringify(ans)
                                     }
                                 );
+
                                 console.log(response);
-                                output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                                var text = await response.text();
+                                console.log(text);
+                                if (text === 'Registered Succesfully')
+                                    output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                                else if (text === 'Already Registered')
+                                    output("ALREADY REGISTERED USING THIS MAIL!");
+                                else {
+                                    output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
+                                }
                             }catch(errin)
                             {
                                 console.log(errin);
@@ -248,11 +267,13 @@ var Terminal =
                             if (args == "python3")
                                 output("Try running a script!");
                             if (args[1].toLowerCase() == "register.py") {
-                                
+                                counter = 0;
+                                correctinp = 0;
+
                                 registerStart = true;
                                 output("RUNNING THE REGISTRATION SCRIPT...");
                                 output(QUESTIONS[counter]);
-                                
+
                                 correctinp = 1;
                                 counter = 1;
                             } else if (args[1].toLowerCase() == "venue.py")
@@ -342,7 +363,7 @@ var Terminal =
 
         // Output to the terminal
         function output(html) {
-            
+
             output_.insertAdjacentHTML("beforeEnd", "<p>" + html + "</p>");
             var objDiv = document.getElementById("container");
             objDiv.scrollTop = objDiv.scrollHeight;
