@@ -57,7 +57,7 @@ $(document).ready(function() {
     // Submit this "data" object to server
     try{
         fetch(
-            "http://35.225.175.55:5000/register",
+            "http://35.225.175.55:8000/register",
             {
                 method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                 headers: {

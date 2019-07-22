@@ -15,10 +15,8 @@ var Terminal =
 
         const CMDS_ = [
             "help",
-            "submit.py",
             "venue.py",
             "register.py",
-            "time.py"
         ];
 
         const QUESTIONS = [
@@ -70,13 +68,11 @@ var Terminal =
         var histtemp_ = 0;
         registerStart = false;
 
-        // window.addEventListener(
-        //   "click",
-        //   function(e) {
-        //     cmdLine_.focus();
-        //   },
-        //   false
-        // );
+        $('#container').click(
+          function(e) {
+            cmdLine_.focus();
+          }
+        );
 
         cmdLine_.addEventListener("click", inputTextClick_, false);
         cmdLine_.addEventListener("keydown", historyHandler_, false);
@@ -156,13 +152,15 @@ var Terminal =
                 
 
                 if (registerStart == true) {
+                    console.log(QUESTIONS+' '+counter);
                     ans[ident[counter - 1]] = args.join(" ");
                     if (counter == QUESTIONS.length) {
                         // output("Run submit.py to submit your details !");
+                        console.log(ans);
                         output("SUBMITTING DETAILS... PLEASE WAIT");
                         try{
                         var response = await fetch(
-                            "http://35.225.175.55:5000/register",
+                            "http://35.225.175.55:8000/register",
                             {
                                 method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                 headers: {
@@ -177,7 +175,7 @@ var Terminal =
                             console.log(err);
                             try{
                                 var response = await fetch(
-                                    "http://35.225.175.55:5000/register",
+                                    "http://35.225.175.55:8000/register",
                                     {
                                         method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                         headers: {
@@ -250,8 +248,7 @@ var Terminal =
                             if (args == "python3")
                                 output("Try running a script!");
                             if (args[1].toLowerCase() == "register.py") {
-                                var counter = 0;
-                                var correctinp = 0;
+                                
                                 registerStart = true;
                                 output("RUNNING THE REGISTRATION SCRIPT...");
                                 output(QUESTIONS[counter]);
@@ -260,14 +257,7 @@ var Terminal =
                                 counter = 1;
                             } else if (args[1].toLowerCase() == "venue.py")
                                 output("KJ Somaiya College Of Engineering");
-                            else if (args[1].toLowerCase() == "submit.py") {
-                                output("SUBMITTING DETAILS...");
-                                for (var key in ans) {
-                                    if (ans.hasOwnProperty(key)) {
-                                        output(key + " " + ans[key]);
-                                    }
-                                }
-                            } else output("No Such Script");
+                            else output("No Such Script");
                             break;
                         case "clear":
                             output_.innerHTML = "";

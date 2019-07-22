@@ -126,6 +126,7 @@ body {
   width: 100%;
   border: none;
   color: inherit;
+  font-size: 100%;
 }
 .ls-files {
   height: 45px;
