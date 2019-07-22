@@ -1,4 +1,23 @@
-$(document).ready(function() {
+$(document).ready(function () {
+
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "30000",
+    "hideDuration": "10000",
+    "timeOut": "50000",
+    "extendedTimeOut": "10000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
   $('select').material_select();
 
   $.validator.setDefaults({
@@ -6,13 +25,13 @@ $(document).ready(function() {
   });
 
   $("form").validate({
-    submitHandler: function(form) {
+    submitHandler: function (form) {
       console.log(form);
-      
+
       return;
     },
     errorElement: 'div',
-    errorPlacement: function(error, element) {
+    errorPlacement: function (error, element) {
       var placement = $(element).data('error');
       if (placement) {
         $(placement).append(error)
@@ -55,22 +74,32 @@ $(document).ready(function() {
     console.log(data);
 
     // Submit this "data" object to server
-    try{
-        fetch(
-            "http://35.225.175.55:8000/register",
-            {
-                method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                redirect: "follow", referrer: "no-referrer", body: JSON.stringify(data)
-            }
-        ).then(
-            res=>console.log(res)
-        );
-        
-        }catch(err){
-            console.log(err);
+    try {
+      fetch(
+        "http://35.225.175.55:8000/register",
+        {
+          method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          redirect: "follow", referrer: "no-referrer", body: JSON.stringify(data)
         }
+      ).then(resp => resp.text()).then(
+        (res) => {
+          console.log(res);
+          if (res === 'Registered Succesfully') {
+            toastr['success']("Registration Completed!");
+          }
+          else if (res === 'Already Registered') {
+            toastr['error']("Already Registed!");
+          }
+          else {
+            toastr['error']("Registration failed!");
+          }
+        });
+
+    } catch (err) {
+      console.log(err);
+    }
   });
 });
