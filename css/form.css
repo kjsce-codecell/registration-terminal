@@ -3,6 +3,8 @@ body {
   background-color: #3a4149;
 }
 
+
+
 form p {
   font-size: 120%;
 }
@@ -86,4 +88,30 @@ div.error {
 
 [type="radio"]:not(:checked)+label, [type="radio"]:checked+label{
   height:auto;
+}
+
+#overlay{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.8);
+  z-index:999;
+}
+
+#dialog{
+  background: #fff;
+  width:70%;
+  padding:  20px;
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 150%;
+}
+
+html, body{
+  overflow: hidden;
 }

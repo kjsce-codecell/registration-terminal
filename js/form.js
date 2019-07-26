@@ -71,6 +71,9 @@ $(document).ready(function () {
       category: QUESTIONS[category]
     };
 
+    toastr['error']("Sorry. We have closed the registration now.");
+    return;
+
     console.log(data);
 
     // Submit this "data" object to server
