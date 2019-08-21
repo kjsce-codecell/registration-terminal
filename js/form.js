@@ -46,40 +46,32 @@ $(document).ready(function () {
 
     const QUESTIONS = {
       noob: 'I am new to programming and have never worked with programming languages before',
-      basic: 'I have a basic grasp on programming concepts and can implement simple programs in a language like C, Java or python',
-      amateur: 'I have taken a course in DSA thus have an understanding of it',
-      professional: 'I have extensively worked with C, java or other languages and can easily convert thought to code using proper data structures and efficient algorithms',
-      beginner: 'I am a beginner with no prior experience in python',
-      syntax: 'I know the syntax but haven\'t made anything cool with it yet',
-      intermediate: 'I have various side projects in Python and I can write efficient python code following best practices',
-      docs: 'I am not afraid to pull up docs to find what I am looking for'
+      basic: 'I had cs in school/college thus I have a basic idea about how programming works (C/java/other)',
+      amateur: 'I am curious about programming and thus have tried to explore stuff on my own.',
+      professional: 'I have knowledge about python and know the syntax.',
     };
 
     let Name = $.trim($("#name").val());
     let Email = $.trim($("#email").val());
     let mobile = $.trim($("#mob").val());
-    let college = $.trim($("#college").val());
     let branch = $.trim($("#branch").val());
-    let year = $.trim($("#year").val());
 
     let experience = $("input[name='experience']:checked").val();
-    let category = $("input[name='category']:checked").val();
 
     const data = {
-      Name, Email, mobile, college, branch, year,
+      Name, Email, mobile, branch,
       experience: QUESTIONS[experience],
-      category: QUESTIONS[category]
     };
 
-    toastr['error']("Sorry. We have closed the registration now.");
-    return;
+    // toastr['error']("Sorry. We have closed the registration now.");
+    // return;
 
     console.log(data);
 
     // Submit this "data" object to server
     try {
       fetch(
-        "http://35.225.175.55:8000/register",
+        "http://54.173.195.32:8000/register",
         {
           method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
           headers: {

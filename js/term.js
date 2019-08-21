@@ -23,36 +23,23 @@ var Terminal =
             "Enter your full name :",
             "Enter your email id :",
             "Enter your Mobile No. :",
-            "Enter your College name :",
             "Enter your Branch name :",
-            "What year are you currently studying in :",
             "Which of the following best describes your programming experience ?",
-            "How would you categorize yourself in terms of python knowledge ?"
         ];
 
         const ident = [
             "Name",
             "Email",
             "mobile",
-            "college",
             "branch",
-            "year",
             "q1",
-            "q2"
         ];
 
         const options1 = [
-            "(A)New to programming and have never worked with programming languages before",
-            "(B)Have a basic grasp on programming languages like c or java or python",
-            "(C)Taken a course in Data structures,Algorithms so I have an understanding of it",
-            "(D)Worked extensively with languages and can convert thought to code using Data structures and Algorithms"
-        ];
-
-        const options2 = [
-            "(A)Beginner to python with no prior experience",
-            "(B)Know the syntax, but haven't made anything cool with it",
-            "(C)Not afraid to pull up docs to find what I am lookijg for",
-            "(D)Have various projects in python and can write efficient Python code following best practices"
+            "(A)I am new to programming and have never worked with programming languages before",
+            "(B)I had cs in school/college thus I have a basic idea about how programming works (C/java/other)",
+            "(C)I am curious about programming and thus have tried to explore stuff on my own.",
+            "(D)I have knowledge about python and know the syntax."
         ];
 
         var ans = {};
@@ -160,7 +147,7 @@ var Terminal =
                         output("SUBMITTING DETAILS... PLEASE WAIT");
                         try{
                         var response = await fetch(
-                            "http://35.225.175.55:8000/register",
+                            "http://54.173.195.32:8000/register",
                             {
                                 method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                 headers: {
@@ -172,20 +159,21 @@ var Terminal =
                         );
 
                             var text = await response.text();
-                            if (text === 'Registered Succesfully')
-                                output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                            if (text === 'Registered Succesfully'){
+                            }
                             else if (text === 'Already Registered')
                                 output("ALREADY REGISTERED USING THIS MAIL!");
                             else {
                                 output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
                             }
                         console.log(response);
-                        //output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                        counter=1;
+                        output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
                         }catch(err){
                             console.log(err);
                             try{
                                 var response = await fetch(
-                                    "http://35.225.175.55:8000/register",
+                                    "http://54.173.195.32:8000/register",
                                     {
                                         method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                         headers: {
@@ -244,21 +232,14 @@ var Terminal =
                             } while (true);
                         }
                         output(QUESTIONS[counter]);
-                        if (counter == QUESTIONS.length - 2) {
+                        if (counter == QUESTIONS.length - 1) {
                             output(
                                 "Please answer this question with the letter of the appropriate option, honestly"
                             );
                             for (var q in options1) {
                                 output(options1[q]);
                             }
-                        } else if (counter == QUESTIONS.length - 1) {
-                            output(
-                                "Please answer this question with the letter of the appropriate option, honestly"
-                            );
-                            for (var q in options2) {
-                                output(options2[q]);
-                            }
-                        }
+                        } 
                         counter = counter + 1;
                     }
                 } else {
@@ -269,13 +250,13 @@ var Terminal =
                             if (args[1].toLowerCase() == "register.py") {
                                 counter = 0;
                                 correctinp = 0;
-                                output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
-                                // registerStart = true;
-                                // output("RUNNING THE REGISTRATION SCRIPT...");
-                                // output(QUESTIONS[counter]);
+                                // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                                registerStart = true;
+                                output("RUNNING THE REGISTRATION SCRIPT...");
+                                output(QUESTIONS[counter]);
 
-                                // correctinp = 1;
-                                // counter = 1;
+                                correctinp = 1;
+                                counter = 1;
                             } else if (args[1].toLowerCase() == "venue.py")
                                 output("KJ Somaiya College Of Engineering");
                             else output("No Such Script");
@@ -286,7 +267,7 @@ var Terminal =
                             output(
                                 "Welcome to the codecell registration terminal"
                             );
-                            output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                            // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
                             output('Type "ls" for a list of available scripts');
                             return;
                         case "echo":
@@ -370,7 +351,7 @@ var Terminal =
             objDiv.scrollTop = objDiv.scrollHeight;
             var $prompt = $(".prompt");
             console.log($prompt);
-            console.log(registerStart);
+            // console.log(registerStart);
             if (registerStart) {
                 var lastprompt = $prompt[$prompt.length - 1];
                 $(lastprompt).html(">>");
@@ -396,7 +377,7 @@ var Terminal =
         return {
             init: function() {
                 output("Welcome to the codecell registration terminal");
-                output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
                 output('Type "ls" for a list of available scripts');
                 //output('<img align="left" src="assets/codecell logo.jpg" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">HTML5 Web Terminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.</p>');
             },
