@@ -160,6 +160,7 @@ var Terminal =
 
                             var text = await response.text();
                             if (text === 'Registered Succesfully'){
+                                output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
                             }
                             else if (text === 'Already Registered')
                                 output("ALREADY REGISTERED USING THIS MAIL!");
@@ -168,7 +169,7 @@ var Terminal =
                             }
                         console.log(response);
                         counter=1;
-                        output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                        //output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
                         }catch(err){
                             console.log(err);
                             try{

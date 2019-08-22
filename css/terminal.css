@@ -3,6 +3,7 @@ body {
   color: white;
   background-color: #14171b;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .full_cont{
