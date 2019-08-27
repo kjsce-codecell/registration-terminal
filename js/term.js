@@ -23,23 +23,25 @@ var Terminal =
             "Enter your full name :",
             "Enter your email id :",
             "Enter your Mobile No. :",
+            "Enter your year: ",
             "Enter your Branch name :",
-            "Which of the following best describes your programming experience ?",
+            "Which language do you prefer to code ?",
         ];
 
         const ident = [
             "Name",
             "Email",
             "mobile",
+            "year",
             "branch",
             "q1",
         ];
 
         const options1 = [
-            "(A)I am new to programming and have never worked with programming languages before",
-            "(B)I had cs in school/college thus I have a basic idea about how programming works (C/java/other)",
-            "(C)I am curious about programming and thus have tried to explore stuff on my own.",
-            "(D)I have knowledge about python and know the syntax."
+            "(A)C",
+            "(B)C++",
+            "(C)Java",
+            "(D)Python"
         ];
 
         var ans = {};

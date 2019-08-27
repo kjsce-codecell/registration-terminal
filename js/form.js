@@ -45,22 +45,27 @@ $(document).ready(function () {
   $("#submitForm").on('submit', (e) => {
 
     const QUESTIONS = {
-      noob: 'I am new to programming and have never worked with programming languages before',
-      basic: 'I had cs in school/college thus I have a basic idea about how programming works (C/java/other)',
-      amateur: 'I am curious about programming and thus have tried to explore stuff on my own.',
-      professional: 'I have knowledge about python and know the syntax.',
+      c: 'C',
+      cpp: 'C++',
+      java: 'Java',
+      python: 'Python',
     };
 
     let Name = $.trim($("#name").val());
     let Email = $.trim($("#email").val());
     let mobile = $.trim($("#mob").val());
     let branch = $.trim($("#branch").val());
+    let year = $.trim($("#year").val());
 
-    let experience = $("input[name='experience']:checked").val();
+    // console.log(year);
+
+    let language = $("input[name='language']:checked").val();
+
+    // console.log(language);
 
     const data = {
-      Name, Email, mobile, branch,
-      experience: QUESTIONS[experience],
+      Name, Email, mobile, branch, year,
+      language: QUESTIONS[language],
     };
 
     // toastr['error']("Sorry. We have closed the registration now.");
