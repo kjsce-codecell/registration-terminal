@@ -45,10 +45,10 @@ $(document).ready(function () {
   $("#submitForm").on('submit', (e) => {
 
     const QUESTIONS = {
-      c: 'C',
-      cpp: 'C++',
-      java: 'Java',
-      python: 'Python',
+      c: 'I have never heard of it',
+      cpp: 'I have heard of it but never used it',
+      java: 'I occationally use it, but don\'t know much',
+      python: 'I know it well and use it for my projects',
     };
 
     let Name = $.trim($("#name").val());
