@@ -25,7 +25,7 @@ var Terminal =
             "Enter your Mobile No. :",
             "Enter your year: ",
             "Enter your Branch name :",
-            "Which language do you prefer to code ?",
+            "How much do you know about Git or Github?",
         ];
 
         const ident = [
@@ -38,10 +38,10 @@ var Terminal =
         ];
 
         const options1 = [
-            "(A)C",
-            "(B)C++",
-            "(C)Java",
-            "(D)Python"
+            "(A) I have never heard of it",
+            "(B) I have heard of it but never used it",
+            "(C) I occationally use it, but don\'t know much",
+            "(D) I know it well and use it for my projects"
         ];
 
         var ans = {};
