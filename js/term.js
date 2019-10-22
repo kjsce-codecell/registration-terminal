@@ -44,6 +44,18 @@ var Terminal =
             "(D) I know it well and use it for my projects"
         ];
 
+        const meme = [
+            "https://www.reddit.com/r/ProgrammerHumor/comments/9vl8ec/when_you_get_started_with_github/",
+            "https://www.reddit.com/r/ProgrammerHumor/comments/7l3jtr/someday_all_hype_about_git_will_be_over/",
+            "https://www.reddit.com/r/ProgrammerHumor/comments/8jtxrn/the_best_way_of_saving_your_code/",
+            "https://twitter.com/codedoesmeme/status/1086842642707726337",
+            "https://twitter.com/codedoesmeme/status/1114930159075958785",
+            "https://twitter.com/codedoesmeme/status/1116749679985864704",
+            "https://me.me/i/merge-conflict-git-push-force-origin-masteremegenerator-net-none-19539052",
+            "https://me.me/i/push-rejected-rebaseor-merge-38-git-push-force-git-commit-amend-git-17402357",
+            "https://imgflip.com/i/lrihf"
+        ]
+
         var ans = {};
 
         var submissionData = {};
@@ -303,6 +315,13 @@ var Terminal =
                             output(
                                 "HINT : try running the script with python3 !"
                             );
+                            break;
+
+                        case "git":
+                            var pp=Math.floor(Math.random()*9)
+                            output(
+                                "<a href="+meme[pp]+" target=\"_blank\">Click</a> for a surprise"
+                            )
                             break;
                         case "submit.py":
                             output(
