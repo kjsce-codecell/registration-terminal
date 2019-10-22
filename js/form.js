@@ -45,10 +45,10 @@ $(document).ready(function () {
   $("#submitForm").on('submit', (e) => {
 
     const QUESTIONS = {
-      c: 'C',
-      cpp: 'C++',
-      java: 'Java',
-      python: 'Python',
+      c: 'I have never heard of it',
+      cpp: 'I have heard of it but never used it',
+      java: 'I occationally use it, but don\'t know much',
+      python: 'I know it well and use it for my projects',
     };
 
     let Name = $.trim($("#name").val());
@@ -74,9 +74,12 @@ $(document).ready(function () {
     console.log(data);
 
     // Submit this "data" object to server
+    //Old AWS Server: http://54.173.195.32:8000/register
+    //New Server: http://codecell.eu-4.evennode.com/register
     try {
+      $('#submitbtn').prop('disabled', 'true');
       fetch(
-        "http://54.173.195.32:8000/register",
+        "http://codecell.eu-4.evennode.com/register",
         {
           method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
           headers: {
@@ -87,6 +90,7 @@ $(document).ready(function () {
       ).then(resp => resp.text()).then(
         (res) => {
           console.log(res);
+          $('#submitbtn').attr('disabled', false);
           if (res === 'Registered Succesfully') {
             toastr['success']("Registration Completed!");
           }
@@ -101,5 +105,6 @@ $(document).ready(function () {
     } catch (err) {
       console.log(err);
     }
+
   });
 });

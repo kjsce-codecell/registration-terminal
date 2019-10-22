@@ -25,7 +25,7 @@ var Terminal =
             "Enter your Mobile No. :",
             "Enter your year: ",
             "Enter your Branch name :",
-            "Which language do you prefer to code ?",
+            "How much do you know about Git or Github?",
         ];
 
         const ident = [
@@ -38,10 +38,10 @@ var Terminal =
         ];
 
         const options1 = [
-            "(A)C",
-            "(B)C++",
-            "(C)Java",
-            "(D)Python"
+            "(A) I have never heard of it",
+            "(B) I have heard of it but never used it",
+            "(C) I occationally use it, but don\'t know much",
+            "(D) I know it well and use it for my projects"
         ];
 
         var ans = {};
@@ -149,7 +149,7 @@ var Terminal =
                         output("SUBMITTING DETAILS... PLEASE WAIT");
                         try{
                         var response = await fetch(
-                            "http://54.173.195.32:8000/register",
+                            "http://codecell.eu-4.evennode.com/register",
                             {
                                 method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                 headers: {
@@ -176,7 +176,7 @@ var Terminal =
                             console.log(err);
                             try{
                                 var response = await fetch(
-                                    "http://54.173.195.32:8000/register",
+                                    "http://codecell.eu-4.evennode.com/register",
                                     {
                                         method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                         headers: {
