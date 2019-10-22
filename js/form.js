@@ -74,9 +74,11 @@ $(document).ready(function () {
     console.log(data);
 
     // Submit this "data" object to server
+    //Old AWS Server: http://54.173.195.32:8000/register
+    //New Server: http://codecell.eu-4.evennode.com/register
     try {
       fetch(
-        "http://54.173.195.32:8000/register",
+        "http://codecell.eu-4.evennode.com/register",
         {
           method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
           headers: {

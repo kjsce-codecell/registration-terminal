@@ -149,7 +149,7 @@ var Terminal =
                         output("SUBMITTING DETAILS... PLEASE WAIT");
                         try{
                         var response = await fetch(
-                            "http://54.173.195.32:8000/register",
+                            "http://codecell.eu-4.evennode.com/register",
                             {
                                 method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                 headers: {
@@ -176,7 +176,7 @@ var Terminal =
                             console.log(err);
                             try{
                                 var response = await fetch(
-                                    "http://54.173.195.32:8000/register",
+                                    "http://codecell.eu-4.evennode.com/register",
                                     {
                                         method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                         headers: {
