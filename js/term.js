@@ -265,13 +265,13 @@ var Terminal =
                             if (args[1].toLowerCase() == "register.py") {
                                 counter = 0;
                                 correctinp = 0;
-                                // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
-                                registerStart = true;
-                                output("RUNNING THE REGISTRATION SCRIPT...");
-                                output(QUESTIONS[counter]);
+                                output('We have closed the registrations! We will be organising more such workshops soon. In the meantime, check out our <a href="https://blogs.kjscecodecell.com/" style="font-weight:bold; color: yellow;">blogs</a> to learn more about our past workshops. Also follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                                // registerStart = true;
+                                // output("RUNNING THE REGISTRATION SCRIPT...");
+                                // output(QUESTIONS[counter]);
 
-                                correctinp = 1;
-                                counter = 1;
+                                // correctinp = 1;
+                                // counter = 1;
                             } else if (args[1].toLowerCase() == "venue.py")
                                 output("KJ Somaiya College Of Engineering");
                             else output("No Such Script");
@@ -282,7 +282,7 @@ var Terminal =
                             output(
                                 "Welcome to the codecell registration terminal"
                             );
-                            // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                            output('We have closed the registrations! We will be organising more such workshops soon. In the meantime, check out our <a href="https://blogs.kjscecodecell.com/" style="font-weight:bold; color: yellow;">blogs</a> to learn more about our past workshops. Also follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
                             output('Type "ls" for a list of available scripts');
                             return;
                         case "echo":
@@ -399,7 +399,7 @@ var Terminal =
         return {
             init: function() {
                 output("Welcome to the codecell registration terminal");
-                // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                output('We have closed the registrations! We will be organising more such workshops soon. In the meantime, check out our <a href="https://blogs.kjscecodecell.com/" style="font-weight:bold; color: yellow;">blogs</a> to learn more about our past workshops. Also follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
                 output('Type "ls" for a list of available scripts');
                 //output('<img align="left" src="assets/codecell logo.jpg" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">HTML5 Web Terminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.</p>');
             },
