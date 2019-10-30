@@ -380,7 +380,7 @@ var Terminal =
             } else {
                 var lastprompt = $prompt[$prompt.length - 1];
                 $(lastprompt).html(
-                    '<b style="font-family:monospace">KJSCE@codecell-macbook-pro</b>$'
+                    '<b style="font-family:monospace">KJSCE@CodeCell-macbook-pro</b>$'
                 );
             }
         }
