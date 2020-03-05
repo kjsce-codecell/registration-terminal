@@ -17,7 +17,6 @@ $(document).ready(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-
     var questions = null;
             
     $.getJSON("../data.json", function(json) {
