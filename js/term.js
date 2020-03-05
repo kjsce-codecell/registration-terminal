@@ -24,8 +24,7 @@ var Terminal =
             "Enter your email id :",
             "Enter your Mobile No. :",
             "Enter your year: ",
-            "Enter your Branch name :",
-            "How much do you know about Git or Github?",
+            "Enter your Branch name :"
         ];
 
         const ident = [
@@ -33,16 +32,14 @@ var Terminal =
             "Email",
             "mobile",
             "year",
-            "branch",
-            "q1",
+            "branch"
         ];
-
-        const options1 = [
-            "(A) I have never heard of it",
-            "(B) I have heard of it but never used it",
-            "(C) I occationally use it, but don\'t know much",
-            "(D) I know it well and use it for my projects"
-        ];
+        var questions = null;
+        
+        $.getJSON("../data.json", function(json) {
+            questions = json["data"];
+            console.log(questions);
+        });
 
         const meme = [
             "https://www.reddit.com/r/ProgrammerHumor/comments/9vl8ec/when_you_get_started_with_github/",
@@ -154,8 +151,11 @@ var Terminal =
 
                 if (registerStart == true) {
                     console.log(QUESTIONS+' '+counter);
-                    ans[ident[counter - 1]] = args.join(" ");
-                    if (counter == QUESTIONS.length) {
+                    if (counter <= QUESTIONS.length)
+                        ans[ident[counter - 1]] = args.join(" ");
+                    else 
+                        ans[questions[counter-QUESTIONS.length-1]["question"]] = args.join(" ");
+                    if (counter == QUESTIONS.length+questions.length) {
                         // output("Run submit.py to submit your details !");
                         console.log(ans);
                         output("SUBMITTING DETAILS... PLEASE WAIT");
@@ -246,15 +246,17 @@ var Terminal =
                                 }
                             } while (true);
                         }
-                        output(QUESTIONS[counter]);
-                        if (counter == QUESTIONS.length - 1) {
+                        if (counter >= QUESTIONS.length) {
+                            output(questions[counter-QUESTIONS.length]["question"]);
                             output(
                                 "Please answer this question with the letter of the appropriate option, honestly"
                             );
-                            for (var q in options1) {
-                                output(options1[q]);
+                            for (var q in questions[counter-QUESTIONS.length]["options"]) {
+                                opt = parseInt(q) + 1;
+                                output("("+opt+") " + questions[counter-QUESTIONS.length]["options"][q]);
                             }
-                        } 
+                        } else
+                            output(QUESTIONS[counter]);
                         counter = counter + 1;
                     }
                 } else {
