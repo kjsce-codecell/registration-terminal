@@ -28,6 +28,7 @@ var Terminal =
             "How much do you know about Docker?",
             "Have you ever build a web application? (Y or N)",
             "Have you ever deployed your application?"
+
         ];
 
         const ident = [
@@ -35,6 +36,7 @@ var Terminal =
             "Email",
             "mobile",
             "year",
+
             "branch",
             "q1",
             "q2",
@@ -47,6 +49,12 @@ var Terminal =
             "(C) I occationally use it, but don\'t know much",
             "(D) I know it well and use it for my projects"
         ];
+        var questions = null;
+        
+        $.getJSON("../data.json", function(json) {
+            questions = json["data"];
+            console.log(questions);
+        });
 
         const options2 = [
             "Y",
@@ -169,8 +177,11 @@ var Terminal =
 
                 if (registerStart == true) {
                     console.log(QUESTIONS+' '+counter);
-                    ans[ident[counter - 1]] = args.join(" ");
-                    if (counter == QUESTIONS.length) {
+                    if (counter <= QUESTIONS.length)
+                        ans[ident[counter - 1]] = args.join(" ");
+                    else 
+                        ans[questions[counter-QUESTIONS.length-1]["question"]] = args.join(" ");
+                    if (counter == QUESTIONS.length+questions.length) {
                         // output("Run submit.py to submit your details !");
                         console.log(ans);
                         output("SUBMITTING DETAILS... PLEASE WAIT");
@@ -261,14 +272,18 @@ var Terminal =
                                 }
                             } while (true);
                         }
+
                         output(QUESTIONS[counter]);
                         if (counter == 5) {
+
                             output(
                                 "Please answer this question with the letter of the appropriate option, honestly"
                             );
-                            for (var q in options1) {
-                                output(options1[q]);
+                            for (var q in questions[counter-QUESTIONS.length]["options"]) {
+                                opt = parseInt(q) + 1;
+                                output("("+opt+") " + questions[counter-QUESTIONS.length]["options"][q]);
                             }
+
                         } 
                         
                         // else if (counter == 6) {
@@ -288,6 +303,7 @@ var Terminal =
                             }
                         }
 
+
                         counter = counter + 1;
                        // output(QUESTIONS[counter]);
                     }
@@ -299,13 +315,13 @@ var Terminal =
                             if (args[1].toLowerCase() == "register.py") {
                                 counter = 0;
                                 correctinp = 0;
-                                // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
-                                registerStart = true;
-                                output("RUNNING THE REGISTRATION SCRIPT...");
-                                output(QUESTIONS[counter]);
+                                output('We have closed the registrations! We will be organising more such workshops soon. In the meantime, check out our <a href="https://blogs.kjscecodecell.com/" style="font-weight:bold; color: yellow;">blogs</a> to learn more about our past workshops. Also follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                                // registerStart = true;
+                                // output("RUNNING THE REGISTRATION SCRIPT...");
+                                // output(QUESTIONS[counter]);
 
-                                correctinp = 1;
-                                counter = 1;
+                                // correctinp = 1;
+                                // counter = 1;
                             } else if (args[1].toLowerCase() == "venue.py")
                                 output("KJ Somaiya College Of Engineering");
                             else output("No Such Script");
@@ -316,7 +332,7 @@ var Terminal =
                             output(
                                 "Welcome to the codecell registration terminal"
                             );
-                            // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                            output('We have closed the registrations! We will be organising more such workshops soon. In the meantime, check out our <a href="https://blogs.kjscecodecell.com/" style="font-weight:bold; color: yellow;">blogs</a> to learn more about our past workshops. Also follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
                             output('Type "ls" for a list of available scripts');
                             return;
                         case "echo":
@@ -433,7 +449,7 @@ var Terminal =
         return {
             init: function() {
                 output("Welcome to the codecell registration terminal");
-                // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
+                output('We have closed the registrations! We will be organising more such workshops soon. In the meantime, check out our <a href="https://blogs.kjscecodecell.com/" style="font-weight:bold; color: yellow;">blogs</a> to learn more about our past workshops. Also follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
                 output('Type "ls" for a list of available scripts');
                 //output('<img align="left" src="assets/codecell logo.jpg" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">HTML5 Web Terminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.</p>');
             },
