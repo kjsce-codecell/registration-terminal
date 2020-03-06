@@ -25,7 +25,7 @@ var Terminal =
             "Enter your Mobile No. :",
             "Enter your year: ",
             "Enter your Branch name :",
-            "How much do you know about Docker?",
+            "How much do you know about DevOps?",
             "Have you ever build a web application? (Y or N)",
             "Have you ever deployed your application?"
         ];
