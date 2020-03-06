@@ -25,7 +25,9 @@ var Terminal =
             "Enter your Mobile No. :",
             "Enter your year: ",
             "Enter your Branch name :",
-            "How much do you know about Git or Github?",
+            "How much do you know about Docker?",
+            "Have you ever build a web application? (Y or N)",
+            "Have you ever deployed your application?"
         ];
 
         const ident = [
@@ -35,6 +37,8 @@ var Terminal =
             "year",
             "branch",
             "q1",
+            "q2",
+            "q3",
         ];
 
         const options1 = [
@@ -42,6 +46,17 @@ var Terminal =
             "(B) I have heard of it but never used it",
             "(C) I occationally use it, but don\'t know much",
             "(D) I know it well and use it for my projects"
+        ];
+
+        const options2 = [
+            "Y",
+            "N"
+        ];
+
+        const options3 = [
+            "(A) Never",
+            "(B) Yes but I struggled",
+            "(C) Yeah deploying is not a big deal for me"
         ];
 
         const meme = [
@@ -247,7 +262,7 @@ var Terminal =
                             } while (true);
                         }
                         output(QUESTIONS[counter]);
-                        if (counter == QUESTIONS.length - 1) {
+                        if (counter == 5) {
                             output(
                                 "Please answer this question with the letter of the appropriate option, honestly"
                             );
@@ -255,7 +270,26 @@ var Terminal =
                                 output(options1[q]);
                             }
                         } 
+                        
+                        // else if (counter == 6) {
+                        //     output(
+                        //         "Please answer this question with the letter of the appropriate option, honestly"
+                        //     );
+                        //     for (var q in options2) {
+                        //         output(options2[q]);
+                        //     }
+                        // }
+                        else if (counter == 7) {
+                            output(
+                                "Please answer this question with the letter of the appropriate option, honestly"
+                            );
+                            for (var q in options3) {
+                                output(options3[q]);
+                            }
+                        }
+
                         counter = counter + 1;
+                       // output(QUESTIONS[counter]);
                     }
                 } else {
                     switch (cmd) {
