@@ -1,5 +1,5 @@
 body {
-  font-family: Inconsolata, monospace;
+  font-family: 'Inconsolata', monospace;
   color: white;
   background-color: #14171b;
   margin: 0;
@@ -128,6 +128,8 @@ body {
   border: none;
   color: inherit;
   font-size: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 .ls-files {
   height: 45px;
