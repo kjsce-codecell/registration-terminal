@@ -1,11 +1,14 @@
+
+// Pre filled form link https://docs.google.com/forms/d/e/1FAIpQLSd8GSiLY0sXxryyrIPDvjjJiodeH6-TLcChEBVB0-4AtyT0mA/viewform?usp=pp_url&entry.1724760141=myemail&entry.580448289=myname&entry.1284286654=8450111122&entry.405986999=__other_option__&entry.405986999.other_option_response=my+college&entry.1414498390=mystate&entry.158599955=mycity&entry.2006066848=LY&entry.1536465481=__other_option__&entry.1536465481.other_option_response=my+branch&entry.553706898=1&entry.792650617=ADVANCED&entry.1056831604=myexpect&entry.1145970256=my+comments
+
 var util = util || {};
-util.toArray = function(list) {
+util.toArray = function (list) {
     return Array.prototype.slice.call(list || [], 0);
 };
 
 var Terminal =
     Terminal ||
-    function(cmdLineContainer, outputContainer) {
+    function (cmdLineContainer, outputContainer) {
         window.URL = window.URL || window.webkitURL;
         window.requestFileSystem =
             window.requestFileSystem || window.webkitRequestFileSystem;
@@ -23,40 +26,49 @@ var Terminal =
             "Enter your full name :",
             "Enter your email id :",
             "Enter your Mobile No. :",
+            "Enter your college: ",
+            "Enter your college's state: ",
+            "Enter your college's city: ",
             "Enter your year: ",
             "Enter your Branch name :",
-            "How much do you know about DevOps?",
-            "Have you ever build a web application? (Y or N)",
-            "Have you ever deployed your application?"
+            "On a scale of 1 to 10, how much do you know about Python?",
+            "Choose a track for the workshop. Input 0 for Basic and 1 for Advanced",
+            "What do you expect from the session?",
+            "Any other comments?",
         ];
 
         const ident = [
             "Name",
             "Email",
             "mobile",
+            "college",
+            "state",
+            "city",
             "year",
             "branch",
-            "q1",
-            "q2",
-            "q3",
+            "q1_skill_level",
+            "q2_track",
+            "q3_expectations",
+            "q4_comments",
         ];
 
-        const options1 = [
-            "(A) I have never heard of it",
-            "(B) I have heard of it but never used it",
-            "(C) I occationally use it, but don\'t know much",
-            "(D) I know it well and use it for my projects"
-        ];
+        // const options1 = [
+        //     "(A) I have never heard of it",
+        //     "(B) I have heard of it but never used it",
+        //     "(C) I occationally use it, but don\'t know much",
+        //     "(D) I know it well and use it for my projects"
+        // ];
 
-        const options2 = [
-            "Y",
-            "N"
-        ];
+        const options1 = [...Array(10).keys()].map(i => i + 1)
+
+        // const options2 = [
+        //     "Y",
+        //     "N"
+        // ];
 
         const options3 = [
-            "(A) Never",
-            "(B) Yes but I struggled",
-            "(C) Yeah deploying is not a big deal for me"
+            "(0) Basic",
+            "(1) Advanced",
         ];
 
         const meme = [
@@ -85,9 +97,9 @@ var Terminal =
         registerStart = false;
 
         $('#container').click(
-          function(e) {
-            cmdLine_.focus();
-          }
+            function (e) {
+                cmdLine_.focus();
+            }
         );
 
         cmdLine_.addEventListener("click", inputTextClick_, false);
@@ -159,7 +171,7 @@ var Terminal =
                 output_.appendChild(line);
 
                 if (this.value && this.value.trim()) {
-                    var args = this.value.split(" ").filter(function(val, i) {
+                    var args = this.value.split(" ").filter(function (val, i) {
                         return val;
                     });
                     var cmd = args[0].toLowerCase();
@@ -168,27 +180,27 @@ var Terminal =
 
 
                 if (registerStart == true) {
-                    console.log(QUESTIONS+' '+counter);
+                    console.log(QUESTIONS + ' ' + counter);
                     ans[ident[counter - 1]] = args.join(" ");
                     if (counter == QUESTIONS.length) {
                         // output("Run submit.py to submit your details !");
-                        console.log(ans);
+                        console.log("Final response object", ans);
                         output("SUBMITTING DETAILS... PLEASE WAIT");
-                        try{
-                        var response = await fetch(
-                            "http://codecell.eu-4.evennode.com/register",
-                            {
-                                method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                redirect: "follow", referrer: "no-referrer", body: JSON.stringify(ans)
-                            }
+                        try {
+                            var response = await fetch(
+                                "http://codecell.eu-4.evennode.com/register",
+                                {
+                                    method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    redirect: "follow", referrer: "no-referrer", body: JSON.stringify(ans)
+                                }
 
-                        );
+                            );
 
                             var text = await response.text();
-                            if (text === 'Registered Succesfully'){
+                            if (text === 'Registered Succesfully') {
                                 output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
                             }
                             else if (text === 'Already Registered')
@@ -196,12 +208,12 @@ var Terminal =
                             else {
                                 output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
                             }
-                        console.log(response);
-                        counter=1;
-                        //output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
-                        }catch(err){
+                            console.log(response);
+                            counter = 1;
+                            //output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                        } catch (err) {
                             console.log(err);
-                            try{
+                            try {
                                 var response = await fetch(
                                     "http://codecell.eu-4.evennode.com/register",
                                     {
@@ -223,8 +235,7 @@ var Terminal =
                                 else {
                                     output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
                                 }
-                            }catch(errin)
-                            {
+                            } catch (errin) {
                                 console.log(errin);
                                 registerStart = false;
                                 output("WHOOPS! SOMETHING WENT WRONG");
@@ -262,15 +273,15 @@ var Terminal =
                             } while (true);
                         }
                         output(QUESTIONS[counter]);
-                        if (counter == 5) {
-                            output(
-                                "Please answer this question with the letter of the appropriate option, honestly"
-                            );
-                            for (var q in options1) {
-                                output(options1[q]);
-                            }
-                        } 
-                        
+                        // if (counter == 8) {
+                        //     output(
+                        //         "Please answer this question with the number of the appropriate option, honestly"
+                        //     );
+                        //     for (var q in options1) {
+                        //         output(options1[q]);
+                        //     }
+                        // }
+
                         // else if (counter == 6) {
                         //     output(
                         //         "Please answer this question with the letter of the appropriate option, honestly"
@@ -279,9 +290,9 @@ var Terminal =
                         //         output(options2[q]);
                         //     }
                         // }
-                        else if (counter == 7) {
+                        if (counter == 9) {
                             output(
-                                "Please answer this question with the letter of the appropriate option, honestly"
+                                "Please answer this question with the number of the appropriate option, honestly"
                             );
                             for (var q in options3) {
                                 output(options3[q]);
@@ -289,7 +300,7 @@ var Terminal =
                         }
 
                         counter = counter + 1;
-                       // output(QUESTIONS[counter]);
+                        // output(QUESTIONS[counter]);
                     }
                 } else {
                     switch (cmd) {
@@ -325,8 +336,8 @@ var Terminal =
                         case "ls":
                             output(
                                 '<div class="ls-files">' +
-                                    CMDS_.join("<br>") +
-                                    "</div>"
+                                CMDS_.join("<br>") +
+                                "</div>"
                             );
                             //output('HINT : try running a script');
                             break;
@@ -352,9 +363,9 @@ var Terminal =
                             break;
 
                         case "git":
-                            var pp=Math.floor(Math.random()*9)
+                            var pp = Math.floor(Math.random() * 9)
                             output(
-                                "<a href="+meme[pp]+" target=\"_blank\">Click</a> for a surprise"
+                                "<a href=" + meme[pp] + " target=\"_blank\">Click</a> for a surprise"
                             )
                             break;
                         case "submit.py":
@@ -376,7 +387,7 @@ var Terminal =
         //
         function formatColumns_(entries) {
             var maxName = entries[0].name;
-            util.toArray(entries).forEach(function(entry, i) {
+            util.toArray(entries).forEach(function (entry, i) {
                 if (entry.name.length > maxName.length) {
                     maxName = entry.name;
                 }
@@ -431,7 +442,7 @@ var Terminal =
 
         // Initiate
         return {
-            init: function() {
+            init: function () {
                 output("Welcome to the codecell registration terminal");
                 // output('We have closed the registrations! We will be organising more such workshops soon. Follow us <a href="https://instagram.com/kjsce_codecell/" style="font-weight:bold; color: yellow;">@kjsce_codecell</a> to stay tuned. See you then!');
                 output('Type "ls" for a list of available scripts');
