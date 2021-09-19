@@ -188,7 +188,7 @@ var Terminal =
                         output("SUBMITTING DETAILS... PLEASE WAIT");
                         try {
                             var response = await fetch(
-                                "http://codecell.eu-4.evennode.com/register",
+                                `https://docs.google.com/forms/d/e/1FAIpQLSd8GSiLY0sXxryyrIPDvjjJiodeH6-TLcChEBVB0-4AtyT0mA/viewform?usp=pp_url&entry.1724760141=${ans.Email}&entry.580448289=${ans.Name}&entry.1284286654=${ans.mobile}&entry.405986999=${ans.q1_skill_level}&entry.405986999.other_option_response=${ans.college}&entry.1414498390=${ans.state}&entry.158599955=${ans.city}&entry.2006066848=${ans.year}&entry.1536465481=__other_option__&entry.1536465481.other_option_response=${ans.branch}&entry.553706898=1&entry.792650617=${ans.q2_track}&entry.1056831604=${q3_expectations}&entry.1145970256=${q4_comments}`,
                                 {
                                     method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
                                     headers: {
@@ -199,48 +199,48 @@ var Terminal =
 
                             );
 
-                            var text = await response.text();
-                            if (text === 'Registered Succesfully') {
-                                output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
-                            }
-                            else if (text === 'Already Registered')
-                                output("ALREADY REGISTERED USING THIS MAIL!");
-                            else {
-                                output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
-                            }
+                            // var text = await response.text();
+                            // if (text === 'Registered Succesfully') {
+                            //     output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                            // }
+                            // else if (text === 'Already Registered')
+                            //     output("ALREADY REGISTERED USING THIS MAIL!");
+                            // else {
+                            //     output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
+                            // }
                             console.log(response);
                             counter = 1;
                             //output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
                         } catch (err) {
                             console.log(err);
-                            try {
-                                var response = await fetch(
-                                    "http://codecell.eu-4.evennode.com/register",
-                                    {
-                                        method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
-                                        headers: {
-                                            "Content-Type": "application/json"
-                                        },
-                                        redirect: "follow", referrer: "no-referrer", body: JSON.stringify(ans)
-                                    }
-                                );
+                            // try {
+                            //     var response = await fetch(
+                            //         "https://docs.google.com/forms/d/e/1FAIpQLSd8GSiLY0sXxryyrIPDvjjJiodeH6-TLcChEBVB0-4AtyT0mA/viewform?usp=pp_url&entry.1724760141=myemail&entry.580448289=myname&entry.1284286654=8450111122&entry.405986999=__other_option__&entry.405986999.other_option_response=my+college&entry.1414498390=mystate&entry.158599955=mycity&entry.2006066848=LY&entry.1536465481=__other_option__&entry.1536465481.other_option_response=my+branch&entry.553706898=1&entry.792650617=ADVANCED&entry.1056831604=myexpect&entry.1145970256=my+comments",
+                            //         {
+                            //             method: "POST", mode: "cors", cache: "no-cache", credentials: "same-origin",
+                            //             headers: {
+                            //                 "Content-Type": "application/json"
+                            //             },
+                            //             redirect: "follow", referrer: "no-referrer", body: JSON.stringify(ans)
+                            //         }
+                            //     );
 
-                                console.log(response);
-                                var text = await response.text();
-                                console.log(text);
-                                if (text === 'Registered Succesfully')
-                                    output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
-                                else if (text === 'Already Registered')
-                                    output("ALREADY REGISTERED USING THIS MAIL!");
-                                else {
-                                    output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
-                                }
-                            } catch (errin) {
-                                console.log(errin);
+                            //     console.log(response);
+                            //     var text = await response.text();
+                            //     console.log(text);
+                            //     if (text === 'Registered Succesfully')
+                            //         output("SUBMITTED SUCCESSFULLY! CHECK YOUR EMAIL");
+                            //     else if (text === 'Already Registered')
+                            //         output("ALREADY REGISTERED USING THIS MAIL!");
+                            //     else {
+                            //         output("WHOOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN");
+                            //     }
+                            // } catch (errin) {
+                                // console.log(errin);
                                 registerStart = false;
                                 output("WHOOPS! SOMETHING WENT WRONG");
                                 console.log('Something went wrong');
-                            }
+                            // }
                         }
                         registerStart = false;
                     } else {
